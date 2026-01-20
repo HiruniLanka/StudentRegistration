@@ -20,4 +20,8 @@
     <ProjectReference Include="..\StudentRegistration.Infrastructure\StudentRegistration.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\image\" />
+  </ItemGroup>
+
 </Project>

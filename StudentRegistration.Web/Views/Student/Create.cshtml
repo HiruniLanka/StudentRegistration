@@ -1,64 +1,80 @@
 ﻿@model StudentRegistration.Domain.Entities.Student
 
-<h2>Add Student</h2>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0"><i class="bi bi-person-plus-fill me-2"></i>Add Student</h3>
+                </div>
+                <div class="card-body p-4">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <form asp-controller="Student" asp-action="Create" method="post">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">NIC <span class="text-danger">*</span></label>
+                                <input asp-for="NIC" class="form-control" placeholder="Enter NIC number" />
+                                <span asp-validation-for="NIC" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
+                                <input asp-for="Email" type="email" class="form-control" placeholder="student@example.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+                        </div>
 
-<form asp-controller="Student" asp-action="Create" method="post">
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">First Name <span class="text-danger">*</span></label>
+                                <input asp-for="FirstName" class="form-control" placeholder="First name" />
+                                <span asp-validation-for="FirstName" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">Middle Name</label>
+                                <input asp-for="MiddleName" class="form-control" placeholder="Middle name" />
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label fw-bold">Last Name with Initials <span class="text-danger">*</span></label>
+                                <input asp-for="LastNameWithInitials" class="form-control" placeholder="e.g., Silva A.B." />
+                                <span asp-validation-for="LastNameWithInitials" class="text-danger small"></span>
+                            </div>
+                        </div>
 
-   
-    <div class="mb-2">
-        <label>NIC</label>
-        <input asp-for="NIC" class="form-control" />
-        <span asp-validation-for="NIC" class="text-danger"></span>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Address <span class="text-danger">*</span></label>
+                            <input asp-for="Address" class="form-control" placeholder="Street address, City" />
+                            <span asp-validation-for="Address" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Phone <span class="text-danger">*</span></label>
+                            <input asp-for="Phone" type="tel" class="form-control" placeholder="+94 71 234 5678" />
+                            <span asp-validation-for="Phone" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">Basic Qualifications <span class="text-danger">*</span></label>
+                            <textarea asp-for="BasicQualifications" class="form-control" rows="4" placeholder="Enter educational qualifications (e.g., A/L, O/L results)"></textarea>
+                            <span asp-validation-for="BasicQualifications" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-action="Index" class="btn btn-outline-secondary px-4">
+                                <i class="bi bi-arrow-left me-1"></i>Cancel
+                            </a>
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="bi bi-check-circle me-1"></i>Save Student
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="mb-2">
-        <label>First Name</label>
-        <input asp-for="FirstName" class="form-control" />
-        <span asp-validation-for="FirstName" class="text-danger"></span>
-    </div>
-
-    <div class="mb-2">
-        <label>Middle Name</label>
-        <input asp-for="MiddleName" class="form-control" />
-    </div>
-
-    <div class="mb-2">
-        <label>Last Name with Initials</label>
-        <input asp-for="LastNameWithInitials" class="form-control" />
-        <span asp-validation-for="LastNameWithInitials" class="text-danger"></span>
-    </div>
-
-    <div class="mb-2">
-        <label>Address</label>
-        <input asp-for="Address" class="form-control" />
-        <span asp-validation-for="Address" class="text-danger"></span>
-    </div>
-
-    <div class="mb-2">
-        <label>Email</label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-
-    <div class="mb-2">
-        <label>Phone</label>
-        <input asp-for="Phone" class="form-control" />
-        <span asp-validation-for="Phone" class="text-danger"></span>
-    </div>
-
-    <div class="mb-2">
-        <label>Basic Qualifications</label>
-        <textarea asp-for="BasicQualifications" class="form-control" rows="3"></textarea>
-        <span asp-validation-for="BasicQualifications" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-success">Save</button>
-    <a asp-action="Index" class="btn btn-secondary">Back</a>
-</form>
-
-@* @section Scripts {
+@section Scripts {
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-} *@
+}
