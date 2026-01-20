@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="StudentRegistration.Application/StudentRegistration.Application.csproj" />
+  <Project Path="StudentRegistration.Domain/StudentRegistration.Domain.csproj" />
+  <Project Path="StudentRegistration.Infrastructure/StudentRegistration.Infrastructure.csproj" />
+  <Project Path="StudentRegistration.Web/StudentRegistration.Web.csproj" />
+</Solution>

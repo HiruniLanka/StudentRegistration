@@ -1,0 +1,64 @@
+﻿@model StudentRegistration.Domain.Entities.Student
+
+<h2>Add Student</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+<form asp-controller="Student" asp-action="Create" method="post">
+
+   
+    <div class="mb-2">
+        <label>NIC</label>
+        <input asp-for="NIC" class="form-control" />
+        <span asp-validation-for="NIC" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>First Name</label>
+        <input asp-for="FirstName" class="form-control" />
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Middle Name</label>
+        <input asp-for="MiddleName" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+        <label>Last Name with Initials</label>
+        <input asp-for="LastNameWithInitials" class="form-control" />
+        <span asp-validation-for="LastNameWithInitials" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Address</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Phone</label>
+        <input asp-for="Phone" class="form-control" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Basic Qualifications</label>
+        <textarea asp-for="BasicQualifications" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="BasicQualifications" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
+
+@* @section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+} *@

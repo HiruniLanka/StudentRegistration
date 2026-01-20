@@ -1,0 +1,43 @@
+﻿   
+
+@{
+}
+
+@model IEnumerable<StudentRegistration.Domain.Entities.Student>
+
+<h2>Students</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Student</a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>NIC</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Qualifications</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.NIC</td>
+                <td>@s.FirstName @(s.MiddleName) @s.LastNameWithInitials</td>
+                <td>@s.Address</td>
+                <td>@s.Email</td>
+                <td>@s.Phone</td>
+                <td>@s.BasicQualifications</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@s.Id" class="btn btn-sm btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@s.Id"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
