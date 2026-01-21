@@ -19,8 +19,10 @@ namespace StudentRegistration.Domain.Entities
         public int Id { get; set; }
 
         [Required(ErrorMessage = "NIC is required")]
-        [StringLength(12, MinimumLength = 10)]
-        public string NIC { get; set; }
+        [RegularExpression(@"^(\d{9}V|\d{12})$",
+    ErrorMessage = "NIC must be 9 digits followed by 'V' or 12 digits")]
+        public string NIC { get; set; } = string.Empty;
+
 
         [Required(ErrorMessage = "First name is required")]
         [StringLength(100)]
@@ -43,7 +45,8 @@ namespace StudentRegistration.Domain.Entities
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Phone is required")]
-        [Phone(ErrorMessage = "Invalid phone format")]
+        [RegularExpression(@"^(07\d{8}|\+947\d{8})$",
+         ErrorMessage = "Enter a valid phone number (07XXXXXXXX or +947XXXXXXXX)")]
         [StringLength(15)]
         public string Phone { get; set; }
 
